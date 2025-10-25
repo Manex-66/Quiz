@@ -1,3 +1,4 @@
+# Simple Quiz Program in Python
 questions = ("What function is used to display text on the screen in Python ?",
              "How do you write a single-line comment in Python?",
              "Which of the following is a correct variable name in Python?",
@@ -8,7 +9,7 @@ questions = ("What function is used to display text on the screen in Python ?",
              "Which loop is best for repeating a block of code a known number of times?",
              "What does this code do?: for i in range(3): print(i)",
              "What is the output of this code?: Print(""Python"")")
-
+# Options for each question
 options = (("A. echo()","B. printf()","C. print()","D. display"),
                 ("A. //comment","B. #comment","C. /*comment*/","D. <!--comment-->"),
                 ("A. 2name","B. my-name","C. my_name","D. my name"),
@@ -19,13 +20,13 @@ options = (("A. echo()","B. printf()","C. print()","D. display"),
                 ("A. while loop","B. for loop","C. repeat loop","D. do loop"),
                 ("A. print 0 1 2","B. 1 2 3","C. 1 2 3 4","D. 0 1 2 3"),
                 ("A. error","B. P","C. yes","D. Python"))
-
+# Correct answers for each question
 answers = ("C","B","C","B","B","B","C","B","A","A")
-
+# Initialize variables
 guesses = []
 question_num = 0
 score = 0
-
+# Quiz loop
 for question in questions:
     print("-------------------------")
     print(question)
@@ -33,7 +34,9 @@ for question in questions:
         print(option)
     guess = input("Enter (A, B, C, D): ").upper()
     guesses.append(guess)
+# Check answer
     try:
+# Compare the guess to the correct answer
         if guess == answers[question_num]:
             score += 1
             print("----------")
@@ -46,12 +49,14 @@ for question in questions:
             print(f"Correct answer is: {answers[question_num]}")
         question_num += 1
         print()
+# Handle potential errors
     except IndexError:
         print("No more questions available.")
         break
     except Exception as e:
         print(f"An error occurred: {e}")
         break
+# Display results
 print("-------------------------RESULTS-----------------------")
 print("Answers: ", end="")
 for answer in answers:
